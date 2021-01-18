@@ -15,6 +15,8 @@ router.get('/search', async (req, res) => {
 
     const data = await requestToAPI(options);
 
+    console.log('data', data);
+
     const result = data.artists.items.map((item) => ({
       externalUrl: item.external_urls.spotify,
       followers: item.followers.total,

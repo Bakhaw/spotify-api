@@ -21,7 +21,7 @@ const spotifyConfig = {
   authEndpoint: SPOTIFY_API_AUTH_ENDPOINT,
   clientID: SPOTIFY_CLIENT_ID,
   redirectUri: NODE_ENV === 'development' ? APP_URL_LOCAL : APP_URL_PROD,
-  scopes: ['user-read-currently-playing', 'user-read-playback-state'],
+  scopes: ['user-read-recently-played', 'user-read-currently-playing', 'user-read-playback-state'],
 };
 
 export default {
