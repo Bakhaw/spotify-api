@@ -1,11 +1,12 @@
 require('dotenv').config();
 
 const {
-  APP_URL_LOCAL,
+  APP_URL_DEV,
   APP_URL_PROD,
-  SPOTIFY_API_BASE_URL,
-  SPOTIFY_API_AUTH_ENDPOINT,
-  SPOTIFY_CLIENT_ID,
+  REDIRECT_URI_DEV,
+  REDIRECT_URI_PROD,
+  SPOTIFY_API_CLIENT_ID,
+  SPOTIFY_API_CLIENT_SECRET,
   NODE_ENV,
   PORT,
 } = process.env;
@@ -17,11 +18,16 @@ const axiosConfig = (accessToken) => ({
 });
 
 const spotifyConfig = {
-  apiBaseUrl: SPOTIFY_API_BASE_URL,
-  authEndpoint: SPOTIFY_API_AUTH_ENDPOINT,
-  clientID: SPOTIFY_CLIENT_ID,
-  redirectUri: NODE_ENV === 'development' ? APP_URL_LOCAL : APP_URL_PROD,
-  scopes: ['user-read-recently-played', 'user-read-currently-playing', 'user-read-playback-state'],
+  apiBaseUrl: 'https://api.spotify.com/v1',
+  authEndpoint: 'https://accounts.spotify.com/authorize?',
+  tokenEndpoint: 'https://accounts.spotify.com/api/token',
+  appBaseUrl: NODE_ENV === 'development' ? APP_URL_DEV : APP_URL_PROD, // front
+  clientID: SPOTIFY_API_CLIENT_ID,
+  clientSecret: SPOTIFY_API_CLIENT_SECRET,
+  redirectUri:
+    NODE_ENV === 'development' ? REDIRECT_URI_DEV : REDIRECT_URI_PROD,
+  scopes:
+    'user-read-recently-played user-read-currently-playing user-read-playback-state',
 };
 
 export default {
