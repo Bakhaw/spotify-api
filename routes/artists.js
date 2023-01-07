@@ -52,6 +52,7 @@ router.get('/artists/:artistId/albums', async (req, res) => {
       image: album.images[0].url, // 640x640 resolution
       name: album.name,
       release_date: album.release_date,
+      release_date_shorten: album.release_date.substring(0, 4), // 2019-06-21 => 2019
       total_tracks: album.total_tracks,
       type: album.type,
       uri: album.uri,

@@ -19,6 +19,7 @@ router.get('/albums/:albumId', async (req, res) => {
     const result = {
       artists: data.artists,
       copyrights: data.copyrights,
+      image: data.images[0].url,
       label: data.label,
       name: data.name,
       popularity: data.popularity,

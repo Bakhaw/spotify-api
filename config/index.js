@@ -27,7 +27,7 @@ const spotifyConfig = {
   redirectUri:
     NODE_ENV === 'development' ? REDIRECT_URI_DEV : REDIRECT_URI_PROD,
   scopes:
-    'user-read-recently-played user-read-currently-playing user-read-playback-state',
+    'user-read-recently-played user-read-currently-playing user-read-playback-state user-top-read user-follow-read streaming',
 };
 
 export default {

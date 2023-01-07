@@ -11,6 +11,8 @@ export async function requestToAPI({ accessToken, endpoint, queryParams }) {
 
     const { data } = await axios.get(url, AXIOS_CONFIG(accessToken));
 
+    console.log('data', url);
+
     return data;
   } catch (err) {
     return err;

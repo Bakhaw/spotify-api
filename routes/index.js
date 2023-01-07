@@ -5,6 +5,7 @@ import albumsRouter from './albums';
 import artistsRouter from './artists';
 import playlistRouter from './playlists';
 import searchRouter from './search';
+import wrappedRouter from './wrapped';
 
 const router = Router();
 
@@ -17,5 +18,6 @@ router.use(albumsRouter);
 router.use(artistsRouter);
 router.use(playlistRouter);
 router.use(searchRouter);
+router.use(wrappedRouter);
 
 export default router;
