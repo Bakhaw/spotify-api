@@ -8,7 +8,7 @@ const router = Router();
 Three different Time Ranges available: long_term (all time), short_term (4 weeks), medium_term (6 months)
 Testing: https://developer.spotify.com/console/get-current-user-top-artists-and-tracks/
 */
-router.get('/wrapped/:type', async (req, res) => {
+router.get('/top/:type', async (req, res) => {
   try {
     const { type } = req.params;
     const { access_token, time_range } = req.query;
@@ -20,7 +20,7 @@ router.get('/wrapped/:type', async (req, res) => {
 
     const data = await requestToAPI(options);
 
-    console.log('wrapped::::', req.query);
+    console.log('top::::', req.query);
 
     res.send(data);
   } catch (error) {
