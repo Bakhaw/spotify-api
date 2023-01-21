@@ -20,7 +20,7 @@ router.get('/top/:type', async (req, res) => {
 
     const data = await requestToAPI(options);
 
-    console.log('top::::', req.query);
+    console.log('top::::', data.response);
 
     res.send(data);
   } catch (error) {

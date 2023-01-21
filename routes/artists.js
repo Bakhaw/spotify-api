@@ -21,7 +21,7 @@ router.get('/artists/:artistId', async (req, res) => {
       followers: followers.total,
       genres,
       id,
-      image: images[0].url, // 1000x1000 resolution
+      images,
       name,
       popularity,
       type,
