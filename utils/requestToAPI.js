@@ -9,6 +9,8 @@ export async function requestToAPI({ accessToken, endpoint, queryParams }) {
   try {
     const url = `${apiBaseUrl}/${endpoint}/${queryParams}`;
 
+    console.log({ url });
+
     const { data } = await axios.get(url, AXIOS_CONFIG(accessToken));
 
     return data;

@@ -28,4 +28,23 @@ router.get('/top/:type', async (req, res) => {
   }
 });
 
+router.get('/me', async (req, res) => {
+  try {
+    const { access_token } = req.query;
+    const options = {
+      accessToken: access_token,
+      endpoint: `me`,
+      queryParams: '',
+    };
+
+    const data = await requestToAPI(options);
+
+    console.log('TOKEN===', data);
+
+    res.send(data);
+  } catch (error) {
+    res.send(error);
+  }
+});
+
 export default router;
