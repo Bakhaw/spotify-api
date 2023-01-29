@@ -46,11 +46,11 @@ router.get('/auth/callback', async (req, res) => {
   const state = req.query.state || null;
   const storedState = req.cookies ? req.cookies[stateKey] : null;
 
-  console.log('AUTH CALLBACK ::::::::::::::::::::::::: ', {
-    code,
-    state,
-    storedState,
-  });
+  // console.log('AUTH CALLBACK ::::::::::::::::::::::::: ', {
+  //   code,
+  //   state,
+  //   storedState,
+  // });
 
   if (state === null || state !== storedState) {
     res.redirect(
