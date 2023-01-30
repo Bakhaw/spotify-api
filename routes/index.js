@@ -6,6 +6,7 @@ import artistsRouter from './artists';
 import playlistRouter from './playlists';
 import searchRouter from './search';
 import topRouter from './top';
+import userRouter from './user';
 
 const router = Router();
 
@@ -19,5 +20,6 @@ router.use(artistsRouter);
 router.use(playlistRouter);
 router.use(searchRouter);
 router.use(topRouter);
+router.use(userRouter);
 
 export default router;

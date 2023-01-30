@@ -1,7 +1,7 @@
-export function apiResponse({ error, items, status }) {
+export function apiResponse({ data, error, status }) {
   const response = {
+    data,
     error,
-    items,
     status,
   };
 

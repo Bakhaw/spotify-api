@@ -15,17 +15,17 @@ export async function requestToAPI({ accessToken, endpoint, queryParams }) {
     const data = await axios.get(url, AXIOS_CONFIG(accessToken));
 
     const response = apiResponse({
+      data: data.data,
       error: null,
-      items: data.data.items,
       status: data.status,
     });
 
-    console.log('SUCCESS - requestToApi:', data.data.items);
+    console.log('SUCCESS - requestToApi:', data.data);
 
     return response;
   } catch (err) {
     const response = apiResponse({
-      items: null,
+      data: null,
       error: err.response.data.error,
       status: err.response.status,
     });
