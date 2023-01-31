@@ -15,15 +15,8 @@ router.get('/me', async (req, res) => {
 
     const data = await requestToAPI(options);
 
-    // console.log(
-    //   'OAUIAIOSDUAZAOIUHBAZFDBAZFABZOFAZFZAIUFZAUIFBZAIFBZAUIBFZAUI /ME ::::::::::::::::::::::::::::',
-    //   'OAUIAIOSDUAZAOIUHBAZFDBAZFABZOFAZFZAIUFZAUIFBZAIFBZAUIBFZAUI /ME ::::::::::::::::::::::::::::',
-    //   data
-    // );
-
     res.send(data);
   } catch (error) {
-    console.log('error', error);
     res.send(error);
   }
 });

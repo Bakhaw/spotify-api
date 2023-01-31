@@ -16,19 +16,7 @@ router.get('/artists/:artistId', async (req, res) => {
 
     const data = await requestToAPI(options);
 
-    const { followers, genres, id, images, name, popularity, type, uri } = data;
-    const result = {
-      followers: followers.total,
-      genres,
-      id,
-      images,
-      name,
-      popularity,
-      type,
-      uri,
-    };
-
-    res.send(result);
+    res.send(data);
   } catch (error) {
     res.send(error);
   }

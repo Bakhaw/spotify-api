@@ -10,8 +10,6 @@ export async function requestToAPI({ accessToken, endpoint, queryParams }) {
   try {
     const url = `${apiBaseUrl}/${endpoint}/${queryParams}`;
 
-    // console.log({ url });
-
     const data = await axios.get(url, AXIOS_CONFIG(accessToken));
 
     const response = apiResponse({
@@ -20,7 +18,7 @@ export async function requestToAPI({ accessToken, endpoint, queryParams }) {
       status: data.status,
     });
 
-    console.log('SUCCESS - requestToApi:', data.data);
+    // console.log('SUCCESS - requestToApi:', data.data);
 
     return response;
   } catch (err) {
