@@ -25,19 +25,27 @@ router.get('/artists/:artistId', async (req, res) => {
 router.get('/artists/:artistId/albums', async (req, res) => {
   try {
     const { artistId } = req.params;
-    const { access_token } = req.query;
+    const { access_token, album_type } = req.query;
     const options = {
       accessToken: access_token,
       endpoint: `artists/${artistId}/albums`,
-      queryParams: '?include_groups=album',
+      queryParams: `?include_groups=${album_type}&limit=50`,
     };
 
-    const data = await requestToAPI(options);
+    const { data } = await requestToAPI(options);
 
-    const result = data.items.map((album) => ({
+    const seen = new Set();
+    const filteredArr = data.items.filter((el) => {
+      const duplicate = seen.has(el.name);
+      seen.add(el.name);
+      return !duplicate;
+    });
+
+    const result = filteredArr.map((album) => ({
+      album_type: album.album_type,
       artists: album.artists,
       id: album.id,
-      image: album.images[0].url, // 640x640 resolution
+      images: album.images,
       name: album.name,
       release_date: album.release_date,
       release_date_shorten: album.release_date.substring(0, 4), // 2019-06-21 => 2019
