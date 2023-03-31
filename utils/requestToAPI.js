@@ -6,11 +6,20 @@ import { apiResponse } from './apiReponse';
 const { AXIOS_CONFIG, SPOTIFY_CONFIG } = config;
 const { apiBaseUrl } = SPOTIFY_CONFIG;
 
-export async function requestToAPI({ accessToken, endpoint, queryParams }) {
+export async function requestToAPI({
+  accessToken,
+  endpoint,
+  method = 'GET',
+  queryParams,
+}) {
   try {
     const url = `${apiBaseUrl}/${endpoint}/${queryParams}`;
 
-    const data = await axios.get(url, AXIOS_CONFIG(accessToken));
+    const data = await axios({
+      method,
+      url,
+      headers: AXIOS_CONFIG(accessToken).headers,
+    });
 
     const response = apiResponse({
       data: data.data,
