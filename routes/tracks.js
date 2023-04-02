@@ -9,6 +9,7 @@ router.get('/tracks/is-saved', async (req, res) => {
     const { access_token, ids } = req.query;
 
     const options = {
+      method: 'GET',
       accessToken: access_token,
       endpoint: `me/tracks/contains`,
       queryParams: `?ids=${ids}`,

@@ -13,6 +13,7 @@ router.get('/top/:type', async (req, res) => {
     const { type } = req.params;
     const { access_token, time_range } = req.query;
     const options = {
+      method: 'GET',
       accessToken: access_token,
       endpoint: `me/top/${type}`,
       queryParams: `?time_range=${time_range}`,

@@ -1,4 +1,3 @@
-import axios from 'axios';
 import { Router } from 'express';
 import querystring from 'querystring';
 import request from 'request';

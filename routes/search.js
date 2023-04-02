@@ -8,6 +8,7 @@ router.get('/search', async (req, res) => {
   try {
     const { access_token, query, type } = req.query;
     const options = {
+      method: 'GET',
       accessToken: access_token,
       endpoint: 'search',
       queryParams: `?q=${query}&type=${type}`,

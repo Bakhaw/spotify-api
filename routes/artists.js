@@ -9,6 +9,7 @@ router.get('/artists/:artistId', async (req, res) => {
     const { artistId } = req.params;
     const { access_token } = req.query;
     const options = {
+      method: 'GET',
       accessToken: access_token,
       endpoint: `artists/${artistId}`,
       queryParams: '',
@@ -27,6 +28,7 @@ router.get('/artists/:artistId/albums', async (req, res) => {
     const { artistId } = req.params;
     const { access_token, album_type } = req.query;
     const options = {
+      method: 'GET',
       accessToken: access_token,
       endpoint: `artists/${artistId}/albums`,
       queryParams: `?include_groups=${album_type}&limit=50`,

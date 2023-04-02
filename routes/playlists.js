@@ -9,6 +9,7 @@ router.get('/playlists/:playlistId', async (req, res) => {
     const { playlistId } = req.params;
     const { access_token } = req.query;
     const options = {
+      method: 'GET',
       accessToken: access_token,
       endpoint: `playlists/${playlistId}`,
       queryParams: '',

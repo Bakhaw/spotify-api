@@ -9,6 +9,7 @@ router.get('/albums/:albumId', async (req, res) => {
     const { albumId } = req.params;
     const { access_token } = req.query;
     const options = {
+      method: 'GET',
       accessToken: access_token,
       endpoint: `albums/${albumId}`,
       queryParams: '',

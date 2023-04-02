@@ -8,6 +8,7 @@ router.get('/me', async (req, res) => {
   try {
     const { access_token } = req.query;
     const options = {
+      method: 'GET',
       accessToken: access_token,
       endpoint: `me`,
       queryParams: '',

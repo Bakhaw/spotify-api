@@ -8,23 +8,25 @@ const { apiBaseUrl } = SPOTIFY_CONFIG;
 
 export async function requestToAPI({
   accessToken,
+  data,
   endpoint,
-  method = 'GET',
+  method,
   queryParams,
 }) {
   try {
     const url = `${apiBaseUrl}/${endpoint}/${queryParams}`;
 
-    const data = await axios({
+    const requestData = await axios({
       method,
       url,
+      data,
       headers: AXIOS_CONFIG(accessToken).headers,
     });
 
     const response = apiResponse({
-      data: data.data,
+      data: requestData.data,
       error: null,
-      status: data.status,
+      status: requestData.status,
     });
 
     // console.log('SUCCESS - requestToApi:', data.data);
