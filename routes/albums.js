@@ -15,22 +15,9 @@ router.get('/albums/:albumId', async (req, res) => {
       queryParams: '',
     };
 
-    const data = await requestToAPI(options);
+    const { data } = await requestToAPI(options);
 
-    const result = {
-      artists: data.artists,
-      copyrights: data.copyrights,
-      image: data.images[0].url,
-      label: data.label,
-      name: data.name,
-      popularity: data.popularity,
-      release_date: data.release_date,
-      total_tracks: data.total_tracks,
-      tracks: data.tracks,
-      uri: data.uri,
-    };
-
-    res.send(result);
+    res.send(data);
   } catch (error) {
     res.send(error);
   }
