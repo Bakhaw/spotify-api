@@ -1,6 +1,6 @@
 import { Router } from 'express';
 
-import { requestToAPI } from '../utils/requestToAPI';
+import { requestToAPI } from '../utils/requestToAPI.js';
 
 const router = Router();
 

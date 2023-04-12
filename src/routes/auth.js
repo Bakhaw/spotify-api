@@ -2,9 +2,9 @@ import { Router } from 'express';
 import querystring from 'querystring';
 import request from 'request';
 
-import { generateRandomString } from '../utils/generateRandomString';
+import { generateRandomString } from '../utils/generateRandomString.js';
 
-import config from '../config';
+import config from '../config/index.js';
 
 const router = Router();
 

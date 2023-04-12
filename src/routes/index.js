@@ -1,15 +1,15 @@
 import { Router } from 'express';
 
-import authRouter from './auth';
-import albumsRouter from './albums';
-import artistsRouter from './artists';
-import meRouter from './me';
-import playerRouter from './player';
-import playlistRouter from './playlists';
-import recentRouter from './player';
-import searchRouter from './search';
-import topRouter from './top';
-import tracksRouter from './tracks';
+import authRouter from './auth.js';
+import albumsRouter from './albums.js';
+import artistsRouter from './artists.js';
+import meRouter from './me.js';
+import playerRouter from './player.js';
+import playlistRouter from './playlists.js';
+import recentRouter from './player.js';
+import searchRouter from './search.js';
+import topRouter from './top.js';
+import tracksRouter from './tracks.js';
 
 const router = Router();
 

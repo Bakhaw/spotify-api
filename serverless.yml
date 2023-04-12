@@ -1,5 +1,5 @@
-service: spotify-api
-frameworkVersion: '3'
+service: api
+frameworkVersion: "3"
 
 provider:
   name: aws
@@ -7,6 +7,6 @@ provider:
 
 functions:
   api:
-    handler: index.handler
+    handler: src/index.handler
     events:
-      - httpApi: '*'
+      - httpApi: "*"

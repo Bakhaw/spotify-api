@@ -1,10 +1,10 @@
-import cors from 'cors';
-import express from 'express';
-import cookieParser from 'cookie-parser';
-import serverless from 'serverless-http';
+import cors from "cors";
+import express from "express";
+import cookieParser from "cookie-parser";
+import serverless from "serverless-http";
 
-import config from './config';
-import router from './routes';
+import config from "./config/index.js";
+import router from "./routes/index.js";
 
 const app = express();
 
@@ -17,4 +17,4 @@ app.listen(config.PORT, () => {
   console.log(`Server running on port ${config.PORT} ...`);
 });
 
-module.exports.handler = serverless(app);
+export const handler = serverless(app);

@@ -1,7 +1,7 @@
 import axios from 'axios';
 
-import config from '../config';
-import { apiResponse } from './apiReponse';
+import config from '../config/index.js';
+import { apiResponse } from './apiReponse.js';
 
 const { AXIOS_CONFIG, SPOTIFY_CONFIG } = config;
 const { apiBaseUrl } = SPOTIFY_CONFIG;
