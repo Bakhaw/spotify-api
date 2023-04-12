@@ -40,7 +40,7 @@ router.get('/artists/:artistId/albums', async (req, res) => {
     const filteredArr = data.items.filter((el) => {
       const duplicate = seen.has(el.name);
       seen.add(el.name);
-      return !duplicate;
+      return Boolean(!duplicate);
     });
 
     const result = filteredArr.map((album) => ({

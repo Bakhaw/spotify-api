@@ -53,7 +53,7 @@ router.put('/play', async (req, res) => {
       data: {
         context_uri,
         offset: { uri: uris },
-        position_ms: position_ms ?? 0,
+        position_ms: position_ms || 0,
         // uris: [uris],
       },
       endpoint: 'me/player/play',
