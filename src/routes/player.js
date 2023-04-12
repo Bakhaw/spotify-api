@@ -1,17 +1,17 @@
-import { Router } from 'express';
+import { Router } from "express";
 
-import { requestToAPI } from '../utils/requestToAPI.js';
+import { requestToAPI } from "../utils/requestToAPI.js";
 
 const router = Router();
 
-router.get('/recent', async (req, res) => {
+router.get("/recent", async (req, res) => {
   try {
     const { access_token } = req.query;
     const options = {
-      method: 'GET',
+      method: "GET",
       accessToken: access_token,
-      endpoint: 'me/player/recently-played',
-      queryParams: '',
+      endpoint: "me/player/recently-played",
+      queryParams: "",
     };
 
     const data = await requestToAPI(options);
@@ -24,14 +24,14 @@ router.get('/recent', async (req, res) => {
   }
 });
 
-router.get('/currently-playing', async (req, res) => {
+router.get("/currently-playing", async (req, res) => {
   try {
     const { access_token } = req.query;
     const options = {
-      method: 'GET',
+      method: "GET",
       accessToken: access_token,
-      endpoint: 'me/player/currently-playing',
-      queryParams: '',
+      endpoint: "me/player/currently-playing",
+      queryParams: "",
     };
 
     const data = await requestToAPI(options);
@@ -44,20 +44,20 @@ router.get('/currently-playing', async (req, res) => {
   }
 });
 
-router.put('/play', async (req, res) => {
+router.put("/play", async (req, res) => {
   try {
     const { access_token, context_uri, position_ms, uris } = req.query;
     const options = {
-      method: 'PUT',
+      method: "PUT",
       accessToken: access_token,
       data: {
         context_uri,
         offset: { uri: uris },
-        position_ms: position_ms || 0,
+        position_ms: position_ms ?? 0,
         // uris: [uris],
       },
-      endpoint: 'me/player/play',
-      queryParams: '',
+      endpoint: "me/player/play",
+      queryParams: "",
     };
 
     const data = await requestToAPI(options);
@@ -70,14 +70,14 @@ router.put('/play', async (req, res) => {
   }
 });
 
-router.put('/pause', async (req, res) => {
+router.put("/pause", async (req, res) => {
   try {
     const { access_token } = req.query;
     const options = {
-      method: 'PUT',
+      method: "PUT",
       accessToken: access_token,
-      endpoint: 'me/player/pause',
-      queryParams: '',
+      endpoint: "me/player/pause",
+      queryParams: "",
     };
 
     const data = await requestToAPI(options);

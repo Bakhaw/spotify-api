@@ -1,4 +1,4 @@
-import dotenv from 'dotenv';
+import dotenv from "dotenv";
 dotenv.config();
 
 const {
@@ -19,16 +19,16 @@ const axiosConfig = (accessToken) => ({
 });
 
 const spotifyConfig = {
-  apiBaseUrl: 'https://api.spotify.com/v1',
-  authEndpoint: 'https://accounts.spotify.com/authorize?',
-  tokenEndpoint: 'https://accounts.spotify.com/api/token',
-  appBaseUrl: NODE_ENV === 'development' ? APP_URL_DEV : APP_URL_PROD, // front
+  apiBaseUrl: "https://api.spotify.com/v1",
+  authEndpoint: "https://accounts.spotify.com/authorize?",
+  tokenEndpoint: "https://accounts.spotify.com/api/token",
+  appBaseUrl: NODE_ENV === "development" ? APP_URL_DEV : APP_URL_PROD,
   clientID: SPOTIFY_API_CLIENT_ID,
   clientSecret: SPOTIFY_API_CLIENT_SECRET,
   redirectUri:
-    NODE_ENV === 'development' ? REDIRECT_URI_DEV : REDIRECT_URI_PROD,
+    NODE_ENV === "development" ? REDIRECT_URI_DEV : REDIRECT_URI_PROD,
   scopes:
-    'playlist-read-private user-modify-playback-state user-library-modify user-library-read user-read-recently-played user-read-currently-playing user-read-playback-state user-top-read user-follow-read streaming',
+    "playlist-read-private user-modify-playback-state user-library-modify user-library-read user-read-recently-played user-read-currently-playing user-read-playback-state user-top-read user-follow-read streaming",
 };
 
 export default {
